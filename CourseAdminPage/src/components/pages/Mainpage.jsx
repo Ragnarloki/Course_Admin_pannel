@@ -2,15 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Currentstudents from "./Currentstudents";
 import { IoSearchOutline } from "react-icons/io5";
+import logo from "../../assets/images/logo.png"
 
 export default function Mainpage() {
   const data = [
     {id:1, title: "On Processing", count: 360 },
     {id:2, title: "Course Completed", count: 670 },
-    {id:3, title: "Overall Students", count: 1220 }
+    {id:3, title: "Overall Students", count: 1030 }
   ];
 
   return (
+    <div>
+          <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
+              <h1 className="flex items-center">{'<'} Back </h1>
+              <h1  className="flex items-center">welcome to admin pannel</h1>
+              <img src={logo} alt="logo" className="h-20 w-30 "></img>
+          </div>        
     <div className="flex flex-row w-full h-full mx-auto">
       {/* Sidebar */}
       <div className="flex flex-col items-center min-h-full bg-dark-blue w-[300px] pt-16">
@@ -81,6 +88,7 @@ export default function Mainpage() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

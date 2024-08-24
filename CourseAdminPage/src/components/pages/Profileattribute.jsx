@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import img from "../../assets/images/profileimg.jpg";
 import { IoSearchOutline } from "react-icons/io5";  
-
+import logo from "../../assets/images/logo.png"
+import { Link } from "react-router-dom";
 export default function Profileattribute() {
   const tasks = [
     {
@@ -46,6 +47,15 @@ export default function Profileattribute() {
   };
 
   return (
+    <div>
+          <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
+          <div className="flex items-center">
+            <Link to={'/StudentDetails'}>
+            <h1 className="flex items-center">{'<'} Back </h1>
+            </Link>
+          </div> <h1  className="flex items-center">welcome to admin pannel</h1>
+            <img src={logo} alt="logo" className="h-20 w-30 "></img>
+          </div>
     <div className="flex flex-row w-full h-full mx-auto">
       {/* Sidebar */}
       <div className="flex flex-col items-center bg-dark-blue mx-auto min-h-full w-[300px] pt-10">
@@ -253,6 +263,7 @@ export default function Profileattribute() {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

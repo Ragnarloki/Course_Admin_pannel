@@ -1,6 +1,7 @@
 import React from 'react'
 import img from "../../assets/images/profileimg.jpg"
-
+import logo from "../../assets/images/logo.png"
+import { Link } from 'react-router-dom';
 export default function Subscription() {
 
     const users = [
@@ -13,6 +14,16 @@ export default function Subscription() {
       ];
 
   return (
+    <div>
+          <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
+          <div className="flex items-center">
+            <Link to={'/StudentDetails'}>
+            <h1 className="flex items-center">{'<'} Back </h1>
+            </Link>
+          </div>
+             <h1  className="flex items-center">welcome to admin pannel</h1>
+            <img src={logo} alt="logo" className="h-20 w-30 "></img>
+          </div>
     <div className="flex flex-row w-full h-full mx-auto">
       {/* Sidebar */}
       <div className="flex flex-col items-center bg-dark-blue mx-auto min-h-full w-[300px] pt-16">
@@ -66,8 +77,8 @@ export default function Subscription() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <tr key={user.id} className="text-center text-white border-b mx-auto">
+            {users.map((user,index) => (
+              <tr key={index} className="text-center text-white border-b mx-auto">
                 <td className="py-4 px-8 text-justify pl-[100px] pr-[100px]">{user.Title}</td>
                 <td className="py-4 px-8 text-justify pl-[100px] pr-[60px]">{user.Data}</td>
               </tr>
@@ -79,5 +90,7 @@ export default function Subscription() {
 
       </div>
     </div>
+    </div>
+
   )
 }

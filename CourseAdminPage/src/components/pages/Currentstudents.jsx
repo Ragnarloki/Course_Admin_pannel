@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Brain from "../../assets/images/Brain.png"
 import Graph from "../../assets/images/Graph.png"
 import Search from "../../assets/images/Search.png"
+import logo from "../../assets/images/logo.png"
 
 export default function Currentstudents() {
 
@@ -23,7 +24,7 @@ export default function Currentstudents() {
   };
   const handleProjects = () => {
     setisToggled(false);
-    setisClick(false);
+    setisClick(false); 
     setisTriggered(true);
   };
 
@@ -53,6 +54,16 @@ export default function Currentstudents() {
 
 
   return (
+    <div>
+          <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
+     <div className="flex items-center">
+     <Link to={'/Mainpage'}> 
+        <h1 >{'<'} Back </h1>
+     </Link>
+      </div>
+     <h1  className="flex items-center">welcome to admin pannel</h1>
+      <img src={logo} alt="logo" className="h-20 w-30 "></img>
+    </div>
     <div className="flex flex-row w-full h-full mx-auto">
       {/* Sidebar */}
       <div className="flex flex-col items-center min-h-full bg-dark-blue w-[300px] pt-16">
@@ -164,6 +175,7 @@ export default function Currentstudents() {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 }

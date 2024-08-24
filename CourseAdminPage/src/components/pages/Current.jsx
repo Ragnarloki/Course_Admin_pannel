@@ -2,6 +2,7 @@ import StudentDetails from './StudentDetails';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoSearchOutline } from "react-icons/io5";
+import logo from "../../assets/images/logo.png"
 
 const Current = () => {
   const users = [
@@ -20,6 +21,12 @@ const Current = () => {
   ];
 
   return (
+    <div>
+          <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
+      <h1 className="flex items-center">{'<'} Back </h1>
+      <h1  className="flex items-center">welcome to admin pannel</h1>
+      <img src={logo} alt="logo" className="h-20 w-30 "></img>
+    </div>
     <div className="flex flex-row w-full h-full  mx-auto">
       {/* Sidebar */}
       <div className="flex flex-col min-h-full items-center bg-dark-blue w-[300px] mx-auto pt-10">
@@ -110,6 +117,7 @@ const Current = () => {
          </tbody>
        </table>
       </div>
+    </div>
     </div>
   );
 };
