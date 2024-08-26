@@ -62,7 +62,7 @@ export default function Currentstudents() {
       { title: "UI / UX design", count: 29 ,img:Search},
       { title: "Java developer", count: 33 ,img:Graph},
       { title: "UI / UX design", count: 23 ,img:Brain},]},
-    { id: 3, title: "Overall Students", count: 1220 ,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
+    { id: 3, title: "Overall Students", count: 1030 ,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
       { title: "Java developer", count: 25,img:Brain },
       { title: "UI / UX design", count: 26 ,img:Graph},
       { title: "Java developer", count: 24 ,img:Brain},

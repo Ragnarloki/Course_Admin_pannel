@@ -49,13 +49,13 @@ export default function Subscription() {
         <div className="flex flex-row justify-between w-full p-10">
           <div className="flex justify-start w-full space-x-5">
             <img
-              src={img}
+              src={users.img}
               alt=""
               className="w-[70px] h-[70px] object-cover rounded-full"
             />
             <div className="flex flex-col">
               <h2 className="text-xl font-extrabold text-dark-blue">
-                Robert Charlos Fury
+                {users.name}
               </h2>
               <span className="text-dark-blue">student</span>
             </div>

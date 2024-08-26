@@ -66,7 +66,7 @@ export default function StudentDetails() {
           <div className="flex flex-row justify-between w-full p-10">
             <div className="flex justify-start w-full space-x-5">
               <img
-                src={img}
+                src={item.img}
                 alt=""
                 className="w-[70px] h-[70px] object-cover rounded-full"
               />
