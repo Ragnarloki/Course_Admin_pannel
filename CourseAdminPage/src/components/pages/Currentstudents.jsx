@@ -28,30 +28,57 @@ export default function Currentstudents() {
     setisTriggered(true);
   };
 
-  const Coursedata = [
-    { title: "UI / UX design", count: 23 ,img:Graph},
-    { title: "Java developer", count: 25,img:Brain },
-    { title: "UI / UX design", count: 26 ,img:Graph},
-    { title: "Java developer", count: 24 ,img:Brain},
-    { title: "UI / UX design", count: 33 ,img:Search},
-    { title: "Java developer", count: 24 ,img:Graph},
-    { title: "UI / UX design", count: 29 ,img:Search},
-    { title: "Java developer", count: 33 ,img:Graph},
-    { title: "UI / UX design", count: 23 ,img:Brain},
-  ];
+  // const Coursedata = [
+  //   { title: "UI / UX design", count: 23 ,img:Graph},
+  //   { title: "Java developer", count: 25,img:Brain },
+  //   { title: "UI / UX design", count: 26 ,img:Graph},
+  //   { title: "Java developer", count: 24 ,img:Brain},
+  //   { title: "UI / UX design", count: 33 ,img:Search},
+  //   { title: "Java developer", count: 24 ,img:Graph},
+  //   { title: "UI / UX design", count: 29 ,img:Search},
+  //   { title: "Java developer", count: 33 ,img:Graph},
+  //   { title: "UI / UX design", count: 23 ,img:Brain},
+  // ];
 
   const { id } = useParams();
 
   // Sample data
   const data = [
-    { id: 1, title: "On Processing", count: 360 },
-    { id: 2, title: "Course Completed", count: 670 },
-    { id: 3, title: "Overall Students", count: 1220 }
+    { id: 1, title: "On Processing", count: 360 ,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
+      { title: "Java developer", count: 25,img:Brain },
+      { title: "UI / UX design", count: 26 ,img:Graph},
+      { title: "Java developer", count: 24 ,img:Brain},
+      { title: "UI / UX design", count: 33 ,img:Search},
+      { title: "Java developer", count: 24 ,img:Graph},
+      { title: "UI / UX design", count: 29 ,img:Search},
+      { title: "Java developer", count: 33 ,img:Graph},
+      { title: "UI / UX design", count: 23 ,img:Brain},]},
+    { id: 2, title: "Course Completed", count: 670 ,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
+      { title: "Java developer", count: 25,img:Brain },
+      { title: "UI / UX design", count: 26 ,img:Graph},
+      { title: "Java developer", count: 24 ,img:Brain},
+      { title: "UI / UX design", count: 33 ,img:Search},
+      { title: "Java developer", count: 24 ,img:Graph},
+      { title: "UI / UX design", count: 29 ,img:Search},
+      { title: "Java developer", count: 33 ,img:Graph},
+      { title: "UI / UX design", count: 23 ,img:Brain},]},
+    { id: 3, title: "Overall Students", count: 1220 ,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
+      { title: "Java developer", count: 25,img:Brain },
+      { title: "UI / UX design", count: 26 ,img:Graph},
+      { title: "Java developer", count: 24 ,img:Brain},
+      { title: "UI / UX design", count: 33 ,img:Search},
+      { title: "Java developer", count: 24 ,img:Graph},
+      { title: "UI / UX design", count: 29 ,img:Search},
+      { title: "Java developer", count: 33 ,img:Graph},
+      { title: "UI / UX design", count: 23 ,img:Brain},]}
   ];
 
   // Find the data item with the matching ID
   const item = data.find(item => item.id === parseInt(id, 10));
-
+  
+  if (!item) {
+    return <div>No data found for this ID.</div>;
+  }
 
   return (
     <div>
@@ -143,22 +170,23 @@ export default function Currentstudents() {
             Project
           </button>
         </div>
-
-         <div className="flex justify-center">
+      
+             <div>
+               <div className="flex justify-center">
         <div className="bg-light-yellow rounded-xl  font-semibold w-80 h-full mb-8">
-        {item ? (
+
           <div>
           <h2 className="text-3xl font-bold text-white text-center p-3">{item.count}</h2>
           <p className="text-dark-blue text-2xl text-center pb-3">{item.title}</p>
           </div>
-        ):(<p className="text-white">NO details found</p>)}
         </div>
         </div>
         {/* Data Cards */}
         <div className="grid grid-cols-3 gap-y-4 gap-x-16">
-          {Coursedata.map((item, index) => (
-            <div
-              key={index}
+        {item.course.map((item,index)=>(
+       
+           <Link to={`/CrntStudents/Current`} key={index}>
+           <div 
               className="bg-dark-blue text-white  rounded-xl grid grid-cols-2"
             >
               <div className="text-center p-5">
@@ -171,11 +199,13 @@ export default function Currentstudents() {
               
               <img className=" w-[100px] h-[100px] rounded" src={item.img} alt="" />
               </div>
-            </div>
-          ))}
+            </div></Link> 
+        ))}
+           </div>
+         </div>
         </div>
+        </div>
+        
       </div>
-    </div>
-    </div>
   );
 }

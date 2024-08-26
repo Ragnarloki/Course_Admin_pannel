@@ -1,23 +1,22 @@
 import React from 'react'
 import img from "../../assets/images/profileimg.jpg"
 import logo from "../../assets/images/logo.png"
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 export default function Subscription() {
 
-    const users = [
-        { Title: "Plan Name", Data: "Advance plan" },
-        { Title: "Plan Starts", Data: "16.07.2024" },
-        { Title: "Plan ends", Data: "16.12.2024" },
-        { Title: "Payment", Data: "xxxxx" },
-        { Title: "Completion", Data: "1 Course" },
+  const location = useLocation();
+  const users = location.state?.additionalData;
 
-      ];
+  if (!users) {
+    return <div>No data available</div>;
+  }
+
 
   return (
     <div>
           <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
           <div className="flex items-center">
-            <Link to={'/StudentDetails'}>
+            <Link to={'/CrntStudents/Current/'}>
             <h1 className="flex items-center">{'<'} Back </h1>
             </Link>
           </div>
@@ -77,7 +76,7 @@ export default function Subscription() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user,index) => (
+            {users.Subscription.map((user,index) => (
               <tr key={index} className="text-center text-white border-b mx-auto">
                 <td className="py-4 px-8 text-justify pl-[100px] pr-[100px]">{user.Title}</td>
                 <td className="py-4 px-8 text-justify pl-[100px] pr-[60px]">{user.Data}</td>

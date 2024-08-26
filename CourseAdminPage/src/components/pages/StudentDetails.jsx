@@ -1,64 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { PieChart, Pie, Cell } from "recharts";
 import img from "../../assets/images/profileimg.jpg";
 import logo from "../../assets/images/logo.png";
 
-export default function StudentDetails() {
-  const users = [
-    { id: 1, Title: "Domain", Data: "UI / UX" },
-    { id: 2, Title: "Internship Period", Data: "2 Months" },
-    { id: 3, Title: "Currently work on", Data: "Day 10" },
-    { id: 4, Title: "Joined Date", Data: "10.7.2024" },
-    { id: 5, Title: "End Date", Data: "10.8.2024" },
-    { id: 6, Title: "Subscription", Data: "1 Month", Button: "View", link: "/Subscription" },
-    { id: 7, Title: "Assignment", Data: "5 / 5", Button: "View", link: "/Profileattribute" },
-    { id: 8, Title: "Task", Data: "30 / 30", Button: "View", link: "/Profileattribute" },
-    { id: 9, Title: "Project", Data: "1 / 3", Button: "View", link: "/Profileattribute" },
-  ];
 
-  const graphData = [
-    {
-      id: 1,
-      name: "Task analysis",
-      color: ["lightgreen", "lightgray"],
-      details: [
-        { id: 1, label: "Task", value: "60%" },
-        { id: 2, label: "No.of.Task", value: "30" },
-        { id: 3, label: "Completed", value: "156" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Project analysis",
-      color: ["#ff0000", "lightgray"],
-      details: [
-        { id: 1, label: "Project", value: "30%" },
-        { id: 2, label: "No.of.Project", value: "3" },
-        { id: 3, label: "Completed", value: "1" },
-      ],
-    },
-    {
-      id: 3,
-      name: "Assignment analysis",
-      color: ["#000000", "lightgray"],
-      details: [
-        { id: 1, label: "Assignment", value: "20%" },
-        { id: 2, label: "No.of.Assignment", value: "10" },
-        { id: 3, label: "Completed", value: "2" },
-      ],
-    },
-    {
-      id: 4,
-      name: "Course analysis",
-      color: ["blue", "lightgray"],
-      details: [
-        { id: 1, label: "Course", value: "20%" },
-        { id: 2, label: "No.of.Modules", value: "30" },
-        { id: 3, label: "Completed", value: "2" },
-      ],
-    },
-  ];
+export default function StudentDetails() {
+  
+  const location = useLocation();
+  const navigate = useNavigate();
+  const users = location.state?.user;
+
+  const handleSendData = () => {
+    navigate(`/subscription/${users.id}`, { state: { additionalData: users } });
+  };
+
+  const { id } = useParams();
+
+  const item = users;
+
+  if (!item) {
+    return <div>No data found for this ID.</div>;
+  }
 
   const getGraphData = (details) => {
     const percentage = parseFloat(details.find((item) => item.id === 1).value) / 100;
@@ -72,7 +35,7 @@ export default function StudentDetails() {
     <div>
       <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
         <div className="flex items-center">
-          <Link to={'/CrntStudents/Current'}>
+          <Link to={'/CrntStudents/Current/'}>
             <h1 className="flex items-center">{'<'} Back</h1>
           </Link>
         </div>
@@ -109,7 +72,7 @@ export default function StudentDetails() {
               />
               <div className="flex flex-col">
                 <h2 className="text-xl font-extrabold text-dark-blue">
-                  Robert Charlos Fury
+                  {item.name}
                 </h2>
                 <span className="text-dark-blue">student</span>
               </div>
@@ -129,7 +92,7 @@ export default function StudentDetails() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
+              {item.Details.map((user, index) => (
                 <tr
                   key={index}
                   className="text-center text-white border-b mx-auto"
@@ -140,20 +103,20 @@ export default function StudentDetails() {
                   <td className="py-2 px-16 text-justify pl-[160px]">
                     {user.Data}
                   </td>
-                  <Link to={user.link}>
+                  {/* <Link to={user.link}  > */}
                     <td className="mr-10">
-                      <button className="bg-light-yellow text-dark-blue w-10 my-2 mr-6 mx-auto rounded-lg">
-                        {user.Button}
-                      </button>
+                    <button  onClick={() => navigate(`${user.link}/${users.id}`, { state: { additionalData: users } })} className="bg-light-yellow text-dark-blue w-10 my-2 mr-6 mx-auto rounded-lg">
+                           {user.Button}
+                    </button>
                     </td>
-                  </Link>
+                  {/* </Link> */}
                 </tr>
               ))}
             </tbody>
           </table>
 
           <div className="grid grid-cols-2 gap-8 justify-center items-center mt-16">
-            {graphData.map((g, index) => (
+            {item.graphData.map((g, index) => (
               <div
                 key={index}
                 className="flex flex-col bg-dark-blue text-light-yellow text-center rounded-lg w-[470px] h-[250px] justify-between items-center"

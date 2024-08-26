@@ -3,20 +3,21 @@ import { useState } from "react";
 import img from "../../assets/images/profileimg.jpg";
 import { IoSearchOutline } from "react-icons/io5";  
 import logo from "../../assets/images/logo.png"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 export default function Profileattribute() {
   const tasks = [
     {
       id: 1,
       name: "Design pattern",
       date: "14 / 8 / 2024",
-      fileLink: "file",
+      fileLink: "Link",
     },
     {
       id: 2,
       name: "Design pattern",
       date: "14 / 8 / 2024",
-      fileLink: "file",
+      fileLink: "Link",
     },
     {
       id: 3,
@@ -26,10 +27,19 @@ export default function Profileattribute() {
     },
   ];
 
+  const location = useLocation();
+  const users = location.state?.additionalData;
+
+  const taskComplete = users.tasks.find(task => task.TaskComplete)?.TaskComplete || [];
+  const Assignment = users.tasks.find(task => task.TaskComplete)?.TaskComplete || [];
+  const Project = users.tasks.find(task => task.TaskComplete)?.TaskComplete || [];
+
+
   const [isToggled, setisToggled] = useState(true);
   const [isClick, setisClick] = useState(false);
   const [isTriggered, setisTriggered] = useState(false);
 
+ 
   const handleTask = () => {
     setisToggled(true);
     setisClick(false);
@@ -50,7 +60,7 @@ export default function Profileattribute() {
     <div>
           <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
           <div className="flex items-center">
-            <Link to={'/StudentDetails'}>
+            <Link to={'/CrntStudents/Current/'}>
             <h1 className="flex items-center">{'<'} Back </h1>
             </Link>
           </div> <h1  className="flex items-center">welcome to admin pannel</h1>
@@ -163,9 +173,9 @@ export default function Profileattribute() {
                 </tr>
               </thead>
               <tbody>
-                {tasks.map((tasks) => (
+                {taskComplete.map((tasks,index) => (
                   <tr
-                    key={tasks.id}
+                    key={index}
                     className="text-center text-white border-b mx-auto"
                   >
                     <td className="py-2 px-16 text-center ">{tasks.id}</td>
@@ -202,19 +212,19 @@ export default function Profileattribute() {
                 </tr>
               </thead>
               <tbody>
-                {tasks.map((tasks) => (
+              {Assignment.map((tasks,index) => (
                   <tr
-                    key={tasks.id}
+                    key={index}
                     className="text-center text-white border-b mx-auto"
                   >
-                    <td className="py-2 px-16 text-justify">{tasks.id}</td>
-                    <td className="py-2 px-16 text-justify text-center">
+                    <td className="py-2 px-16 text-center ">{tasks.id}</td>
+                    <td className="py-2 px-16 ">
                       {tasks.name}
                     </td>
-                    <td className="py-2 px-16 text-justify text-center">
+                    <td className="py-2 px-16 ">
                       {tasks.date}
                     </td>
-                    <td className="py-2 px-16 text-justify text-center ">
+                    <td className="py-2 px-16  ">
                       {tasks.fileLink}
                     </td>
                   </tr>
@@ -241,19 +251,19 @@ export default function Profileattribute() {
                 </tr>
               </thead>
               <tbody>
-                {tasks.map((tasks) => (
+              {Project.map((tasks,index) => (
                   <tr
-                    key={tasks.id}
+                    key={index}
                     className="text-center text-white border-b mx-auto"
                   >
-                    <td className="py-2 px-16 text-justify">{tasks.id}</td>
-                    <td className="py-2 px-16 text-justify text-center">
+                    <td className="py-2 px-16 text-center ">{tasks.id}</td>
+                    <td className="py-2 px-16 ">
                       {tasks.name}
                     </td>
-                    <td className="py-2 px-16 text-justify text-center">
+                    <td className="py-2 px-16 ">
                       {tasks.date}
                     </td>
-                    <td className="py-2 px-16 text-justify text-center ">
+                    <td className="py-2 px-16  ">
                       {tasks.fileLink}
                     </td>
                   </tr>

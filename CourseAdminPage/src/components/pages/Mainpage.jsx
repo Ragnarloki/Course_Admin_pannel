@@ -2,13 +2,40 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Currentstudents from "./Currentstudents";
 import { IoSearchOutline } from "react-icons/io5";
+import Brain from "../../assets/images/Brain.png"
+import Graph from "../../assets/images/Graph.png"
+import Search from "../../assets/images/Search.png"
 import logo from "../../assets/images/logo.png"
 
 export default function Mainpage() {
   const data = [
-    {id:1, title: "On Processing", count: 360 },
-    {id:2, title: "Course Completed", count: 670 },
-    {id:3, title: "Overall Students", count: 1030 }
+    {id:1, title: "On Processing", count: 360 ,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
+      { title: "Java developer", count: 25,img:Brain },
+      { title: "UI / UX design", count: 26 ,img:Graph},
+      { title: "Java developer", count: 24 ,img:Brain},
+      { title: "UI / UX design", count: 33 ,img:Search},
+      { title: "Java developer", count: 24 ,img:Graph},
+      { title: "UI / UX design", count: 29 ,img:Search},
+      { title: "Java developer", count: 33 ,img:Graph},
+      { title: "UI / UX design", count: 23 ,img:Brain},]},
+    {id:2, title: "Course Completed", count: 670,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
+      { title: "Java developer", count: 25,img:Brain },
+      { title: "UI / UX design", count: 26 ,img:Graph},
+      { title: "Java developer", count: 24 ,img:Brain},
+      { title: "UI / UX design", count: 33 ,img:Search},
+      { title: "Java developer", count: 24 ,img:Graph},
+      { title: "UI / UX design", count: 29 ,img:Search},
+      { title: "Java developer", count: 33 ,img:Graph},
+      { title: "UI / UX design", count: 23 ,img:Brain},] },
+    {id:3, title: "Overall Students", count: 1030 ,course:[ { title: "UI / UX design", count: 23 ,img:Graph},
+      { title: "Java developer", count: 25,img:Brain },
+      { title: "UI / UX design", count: 26 ,img:Graph},
+      { title: "Java developer", count: 24 ,img:Brain},
+      { title: "UI / UX design", count: 33 ,img:Search},
+      { title: "Java developer", count: 24 ,img:Graph},
+      { title: "UI / UX design", count: 29 ,img:Search},
+      { title: "Java developer", count: 33 ,img:Graph},
+      { title: "UI / UX design", count: 23 ,img:Brain},]}
   ];
 
   return (
