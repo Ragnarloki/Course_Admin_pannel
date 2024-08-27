@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo.png"
 export default function Paymentdetails() {
   const Subscribers = [
     {
@@ -8,7 +9,7 @@ export default function Paymentdetails() {
       name: "John",
       email: "john.doe@gmail.com",
       Domain: "Full stack",
-      Plan: "15 days - $199",
+      Plan: "15 days - Rs-199",
       Transaction_id: "...yxy768",
       status: "Accepted",
     },
@@ -17,7 +18,7 @@ export default function Paymentdetails() {
       name: "Robert",
       email: "Robertrdj5@gmail.com",
       Domain: "UI & UX",
-      Plan: "60 days - $399",
+      Plan: "60 days - Rs-399",
       Transaction_id: "...xxy112",
       status: "Pending",
     },
@@ -26,7 +27,7 @@ export default function Paymentdetails() {
       name: "Mike",
       email: "Mikemike00@gmail.com",
       Domain: "Mern stack",
-      Plan: "30 days - $299",
+      Plan: "30 days - Rs-299",
       Transaction_id: "...yxx665",
       status: "Completed",
     },
@@ -35,7 +36,7 @@ export default function Paymentdetails() {
       name: "jagadeesh",
       email: "jagdee122@gmail.com",
       Domain: "AI & ML",
-      Plan: "90 days - $499",
+      Plan: "90 days - Rs-499",
       Transaction_id: "...xyx879",
       status: "Requested",
     },
@@ -44,7 +45,7 @@ export default function Paymentdetails() {
       name: "afsar ali",
       email: "afsarallah@gmail.com",
       Domain: "Robotics",
-      Plan: "15 days - $199",
+      Plan: "15 days - Rs-199",
       Transaction_id: "...yxx770",
       status: "Completed",
     },
@@ -53,7 +54,7 @@ export default function Paymentdetails() {
       name: "hariharan",
       email: "harihari333@gmail.com",
       Domain: "Mern stack",
-      Plan: "60 days - $399",
+      Plan: "60 days - Rs-399",
       Transaction_id: "...yyxx070",
       status: "Requested",
     },
@@ -62,7 +63,7 @@ export default function Paymentdetails() {
       name: "siva",
       email: "sivasamy@gmail.com",
       Domain: "Full stack",
-      Plan: "30 days - $299",
+      Plan: "30 days - Rs-299",
       Transaction_id: "...yYx153",
       status: "Pending",
     },
@@ -71,7 +72,7 @@ export default function Paymentdetails() {
       name: "karthi",
       email: "karthikaka90@gmail.com",
       Domain: "AI & ML",
-      Plan: "60 days - $499",
+      Plan: "60 days - Rs-499",
       Transaction_id: "...yXy223",
       status: "Completed",
     },
@@ -105,6 +106,16 @@ export default function Paymentdetails() {
       : subscription.filter((payment) => payment.status === filterStatus);
 
   return (
+    <div>
+        <div className="w-full text-dark-blue text-2xl pl-2 md:pl-4 flex justify-between h-fit bg-white h-[100px]">
+     <div className="flex items-center">
+     <Link to={'/Mainpage'}> 
+        <h1 >{'<'} Back </h1>
+     </Link>
+      </div>
+     <h1  className="flex items-center">welcome to admin pannel</h1>
+      <img src={logo} alt="logo" className="h-20 w-30 "></img>
+    </div>
     <div className="bg-[#FAF2BE] mx-auto h-full h-screen p-10 ">
       <div className="mb-4">
         <select
@@ -175,6 +186,7 @@ export default function Paymentdetails() {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }

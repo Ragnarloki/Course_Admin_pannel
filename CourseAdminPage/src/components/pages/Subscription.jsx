@@ -78,8 +78,8 @@ export default function Subscription() {
           <tbody>
             {users.Subscription.map((user,index) => (
               <tr key={index} className="text-center text-white border-b mx-auto">
-                <td className="py-4 px-8 text-justify pl-[100px] pr-[100px]">{user.Title}</td>
-                <td className="py-4 px-8 text-justify pl-[100px] pr-[60px]">{user.Data}</td>
+                <td className="py-4 px-7 text-justify pl-[100px] pr-[50px]">{user.Title}</td>
+                <td className="py-4 px-7 text-justify pl-[100px] pr-[60px]">{user.Data}</td>
               </tr>
             ))}
           </tbody>
