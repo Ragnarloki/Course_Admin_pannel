@@ -92,6 +92,18 @@ export default function Mainpage() {
           </div>
         </header>
 
+        <div className="flex justify-between bg-dark-blue items-center w-full p-10 h-[50px] rounded-lg mx-auto">
+            <h2 className="flex justify-start text-xl font-TimesNewRoman text-white">
+              Students Subscription Details
+            </h2>
+            <Link to='/Paymentdetails'>
+              <button className="flex justify-end bg-light-yellow text-dark-blue transform hover:scale-105 rounded-lg p-3">
+                Visit
+              </button>
+            </Link>
+          </div>
+
+
         {/* Data Cards */}
         <div className=" flex justify-center flex-wrap">
           <div className="flex justify-center flex-wrap ">

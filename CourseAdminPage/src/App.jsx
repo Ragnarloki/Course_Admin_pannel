@@ -6,6 +6,7 @@ import Mainpage from './components/pages/Mainpage';
 import StudentDetails from './components/pages/StudentDetails';
 import Profileattribute from './components/pages/Profileattribute';
 import Subscription from './components/pages/Subscription';
+import Paymentdetails from './components/pages/PaymentDetails.jsx';
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
     <BrowserRouter>
 
       <Routes>
+      <Route path='/Paymentdetails' element={<Paymentdetails />}/>
         <Route path='/CrntStudents/:id' element={<Currentstudents />}/>
         <Route path='CrntStudents/Current/' element={<Current />}/>
         <Route path='/Mainpage' element={<Mainpage />}/>
