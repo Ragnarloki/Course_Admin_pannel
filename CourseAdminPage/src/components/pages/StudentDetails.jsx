@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { PieChart, Pie, Cell } from "recharts";
-import img from "../../assets/images/profileimg.jpg";
 import logo from "../../assets/images/logo.png";
 
 

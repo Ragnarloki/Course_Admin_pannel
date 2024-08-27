@@ -20,7 +20,7 @@ const Current = () => {
        {TaskComplete:[{
         id: 1,
         name: "Design pattern",
-        date: "14 / 8 / 2024",
+        date: "12 / 8 / 2024",
         fileLink: "Link",
       },
       {
